@@ -13,13 +13,13 @@ namespace Practicasss
         public static int CantidadPalabras(this string cadena)
         {
             string[] array = cadena.Split(' ');
-            return array.Count();
+            return array.Count(); //podria ser una sola linea
         }
 //Crear una sobreescritura del método 1 para que reciba un parámetro adicional char con el separador a usar para contar las palabras.
-        public static int CantidadPalabras(this string cadena, char separator)
+        public static int CantidadPalabras(this string cadena, char separator) //usar mismo idioma
         {
             string[] array = cadena.Split(separator);
-            return array.Count();
+            return array.Count(); //podria ser una sola linea
         }
 //Cree un método de extensión que reciba dos fechas DateTime y calcule su diferencia en segundos
 //y que retorne un decimal con su formato en minutos (en valor decimal, es de 120 = 2 o 180 = 2,5)
@@ -30,7 +30,7 @@ namespace Practicasss
         //Crear un método de extensión que reciba una lista de enteros y devuelva su promedio.
         public static double ObtenerPromedio(this List<int> listaEnteros)
         {
-            return listaEnteros.Sum()/listaEnteros.Count;
+            return listaEnteros.Sum()/listaEnteros.Count; //no hace falta "enteros" en el nombre
         }
 
         //5) Crear un método de extensión que reciba una lista de enteros y devuelva 
@@ -40,7 +40,7 @@ namespace Practicasss
             List<int> Pares=listax.Where(x => (x % 2) == 0).ToList();
             List<int> Impares=listax.Where(x => (x % 2) != 0).ToList();
 
-            return Pares.Sum() * Impares.Sum(x=>-x);
+            return Pares.Sum() * Impares.Sum(x=>-x); //La suma de negativos no es lo mismo que la resta de los valores
         }
         //6) Crear un método de extensión que retorne una fecha en formato DateTime a partir de un string
         //(si se genera una excepción por mal formato retornar el MinValue del tipo de datos).
@@ -62,7 +62,7 @@ namespace Practicasss
         {
             char[] charArray = cadena.ToCharArray();
             Array.Reverse(charArray);
-            return new string(charArray);
+            return new string(charArray); //se puede hacer en una sola linea
         }
         //8) Crear un método de extensión que dado un array de strings, genere un solo string separado por un parámetro de tipo char.
         public static string ArmarString(this char[] charArray, char separador)
@@ -94,7 +94,7 @@ namespace Practicasss
                 Saldo = saldo;
             }
         }
-        public static Cliente Restar(Cliente cliente1, Cliente cliente2)
+        public static Cliente Restar(Cliente cliente1, Cliente cliente2) //hay que sobreescribir el operador - 
         {
             if (cliente1.CUIT == cliente2.CUIT)
                 return new Cliente(cliente1.Saldo - cliente2.Saldo);
@@ -107,12 +107,12 @@ namespace Practicasss
         {
             public static double CelsiusAFahrenheit(int c)
             {
-                return c * 2.12;
+                return c * 2.12; //podria ser una constante
             }
             public static double FahrenheitACelsius(int f)
             {
-                return f / 2.12;
-            }
+                return f / 2.12; //podria ser una constante
+            } 
         }
         //13) Crear un método de extensión que reste dos números enteros.
         public static int Restar(this int nro1, int nro2)
